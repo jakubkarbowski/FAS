@@ -1,0 +1,86 @@
+	.navbar {
+		margin-bottom: 0;
+		border-radius: 0;
+		font-size: 12px;
+		
+    }
+	
+	.row.content {
+		height: 900px;
+		padding-top: 50px;
+		
+	}
+	.sidenav {
+      padding-top: 20px;
+      background-color: #f1f1f1;
+      height: 100%;
+    }
+    .sidenav h6{
+		padding-bottom: 20px;
+	}
+    footer {
+      background-color: #555;
+      color: white;
+      padding: 15px;
+    }
+	#kot{
+		width: 350px;
+		height: 350px;
+	}
+	/* teksty i obrazki */
+	.containerBox {
+    position: relative;
+    display: inline-block;
+	}
+	.text-box {
+		position: absolute;    
+		height: 100%;
+		text-align: center;    
+		width: 100%;
+		
+	}
+	.text-box:before {
+	   content: '';
+	   display: inline-block;
+	   height: 100%;
+	   vertical-align: bottom;
+	   
+	   
+	}
+	.userName {
+	   display: inline-block;
+	   font-size: 20px; 
+	   color: black;
+	   /* Cieniowanie do zrobienia */
+	   /* text-shadow: 3px 2px red;    */
+	}
+	article{
+		border-bottom: 2px dashed black;
+		margin-bottom: 5px;
+		
+	}
+	div.usersPhotos img{
+		display: block;
+		width: 200px;
+		height: 200px;
+		border-radius: 8px;
+		padding: 5px;
+		margin: 5px;
+		border: medium solid #A9A9A9;		
+	}
+	
+    
+    /* On small screens*/
+    @media screen and (max-width: 767px) {
+		.sidenav {
+			visibility: hidden;
+		}
+      
+		.row.content {
+			height:auto;
+			padding-top:0px;
+		} 
+		div.usersPhotos{
+			text-align:center;
+		}
+    }
