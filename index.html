@@ -1,2 +1,130 @@
-<h1>Hello World!</h1>
-<p>Test</p>
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+
+	<title>Main Page</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!--BOOTSTRAP-->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"><!-- Latest compiled and minified CSS -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script><!-- jQuery library -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script><!-- Latest compiled JavaScript -->
+
+	<!--Moje-->
+	<script type="text/javascript" src="scripts/first.js"></script>
+	<link rel="stylesheet" type="text/css" href="styles/styl1.css">
+	
+</head>
+
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>                        
+			</button>
+			<a class="navbar-brand" href="index.html">FAS</a>
+		</div>
+		<div class="collapse navbar-collapse" id="myNavbar">
+			<ul class="nav navbar-nav">
+				<li class="active"><a href="index.html">Home</a></li>
+				<li><a href="#">Strona2</a></li>
+				<li><a href="#">Strona3</a></li>
+				<li><a href="about.html">About</a></li>
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+				<li><a href="login.html"><span class="glyphicon glyphicon-log-in"></span> Logowanie</a></li>
+			</ul>
+		</div>
+	</div>
+</nav>
+<div class="container-fluid text-center">
+	<div class="row content">
+		<div class="col-sm-2 sidenav">
+			<p><a href="#">Reklama1</a></p>
+			<p><a href="#">Reklama2</a></p>
+			<p><a href="#">Reklama3</a></p>
+		</div>
+		<div class="col-sm-8">
+			<article class="text-left">		
+				<h1>Witaj na stronie głównej</h1>
+				<p>Oto urządzenia znajdujące się w Twoim domu:</p>
+			</article>
+			<div>
+				<div class = "usersPhotos">
+					<div class="containerBox">
+						<div class="text-box">
+							<p class="userName">Gracjan</p>
+						</div>
+						<img class="img-responsive" id="user1" src="kot.jpg" alt="Kot"/>
+					</div>
+
+					<div class="containerBox">
+						<div class="text-box">
+							<p class="userName">Sebastian</p>
+						</div>
+						<img class="img-responsive" id="user2" src="kot1.jpg" alt="Kotw"/>
+					</div>
+		
+					<div class="containerBox">
+						<div class="text-box">
+							<p class="userName">Janusz</p>
+						</div>
+						<img class="img-responsive" id="user3" src="puste_zdjecie.jpg" alt="user3"/>
+					</div>
+					<div class="containerBox">
+						<div class="text-box">
+							<p class="userName">Brajan</p>
+						</div>
+						<img class="img-responsive" id="user4" src="http://s2.dmcdn.net/Ub1O8/1280x720-mCQ.jpg" alt="user4"/>
+					</div>
+					<div class="containerBox">
+						<div class="text-box">
+							<p class="userName">Grażyna</p>
+						</div>
+						<img class="img-responsive" id="user5" src="https://i.ytimg.com/vi/G0XO2x0TQ58/hqdefault.jpg" alt="user5"/>
+					</div>
+					<div class="containerBox">
+						<div class="text-box">
+							<p class="userName">Andżelika</p>
+						</div>
+						<img class="img-responsive" id="user6" src="https://s-media-cache-ak0.pinimg.com/originals/be/2d/6f/be2d6f2002e8c90bb0cf0f0e752591ed.jpg" alt="user6"/>
+					</div>
+					<div class="containerBox">
+						<div class="text-box">
+							<p class="userName">Karinka</p>
+						</div>
+						<img class="img-responsive" id="user7" src="puste_zdjecie.jpg" alt="user7"/>
+					</div>
+					<div class="containerBox">
+						<div class="text-box">
+							<p class="userName">Stanisław</p>
+						</div>
+						<img class="img-responsive" id="user8" src="https://i.ytimg.com/vi/Fy_yHOpTy7Y/maxresdefault.jpg" alt="user8"/>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-2 sidenav">
+			<h6>Zadowoleni użytkownicy:</h6>
+			<div class="well">
+				<p>Piotrek</p>
+			</div>
+			<div class="well">
+				<p>Dima</p>
+			</div>
+			<div class="well">
+				<p>Damian</p>
+			</div>
+		</div>
+	</div>
+</div>
+<footer class="container-fluid text-center">
+  <p>Stworzone przez JK</p>
+</footer>
+</body>
+</html>
