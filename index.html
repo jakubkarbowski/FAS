@@ -6,15 +6,69 @@
 	<title>Main Page</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-
+	
+	<!--Firebase-->
+	<script src="node_modules/firebaseui/dist/firebaseui.js"> </script>
+	<link type="text/css" rel="stylesheet" href="node_modules/firebaseui/dist/firebaseui.css" />
+	<script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
+	<script>
+	var config = {
+		apiKey: "AIzaSyD8s-Pp8J5GE9YVPq9zLT5ogoWNfHr8L58",
+		authDomain: "familyavailabilitysystem.firebaseapp.com",
+	  };
+	  firebase.initializeApp(config);
+	</script>
+	<script src="https://cdn.firebase.com/libs/firebaseui/1.0.1/firebaseui.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/1.0.1/firebaseui.css" />
+	
+	
 	<!--BOOTSTRAP-->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"><!-- Latest compiled and minified CSS -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script><!-- jQuery library -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script><!-- Latest compiled JavaScript -->
 
 	<!--Moje-->
-	<script type="text/javascript" src="scripts/first.js"></script>
 	<link rel="stylesheet" type="text/css" href="styles/styl1.css">
+	
+	<script type="text/javascript">
+      initApp = function() {
+        firebase.auth().onAuthStateChanged(function(user) {
+          if (user) {
+            // User is signed in.
+            var displayName = user.displayName;
+            var email = user.email;
+            var emailVerified = user.emailVerified;
+            var photoURL = user.photoURL;
+            var uid = user.uid;
+            var providerData = user.providerData;
+            user.getToken().then(function(accessToken) {
+              document.getElementById('sign-in-status').textContent = 'Signed in';
+              document.getElementById('sign-in').textContent = 'Sign out';
+              document.getElementById('account-details').textContent = JSON.stringify({
+                displayName: displayName,
+                email: email,
+                emailVerified: emailVerified,
+                photoURL: photoURL,
+                uid: uid,
+                accessToken: accessToken,
+                providerData: providerData
+              }, null, '  ');
+            });
+          } else {
+            // User is signed out.
+            document.getElementById('sign-in-status').textContent = 'Signed out';
+            document.getElementById('sign-in').textContent = 'Sign in';
+            document.getElementById('account-details').textContent = 'null';
+          }
+        }, function(error) {
+          console.log(error);
+        });
+      };
+
+      window.addEventListener('load', function() {
+        initApp()
+      });
+
 	
 </head>
 
