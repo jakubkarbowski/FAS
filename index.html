@@ -34,18 +34,17 @@
       initApp = function() {
         firebase.auth().onAuthStateChanged(function(user) {
           if (user) {
-			alert("logged in");
             // User is signed in.
-            //var displayName = user.displayName;
-            //var email = user.email;
-            //var emailVerified = user.emailVerified;
-            //var photoURL = user.photoURL;
-            //var uid = user.uid;
-            //var providerData = user.providerData;
-            //user.getToken().then(function(accessToken) {
-            /*  document.getElementById('sign-in-status').textContent = 'Signed in';
-              document.getElementById('sign-in').textContent = 'Sign out';
-              document.getElementById('account-details').textContent = JSON.stringify({
+            var name = user.displayName;
+            var email = user.email;
+            var emailVerified = user.emailVerified;
+            var photoURL = user.photoURL;
+            var uid = user.uid;
+            var providerData = user.providerData;
+           // user.getToken().then(function(accessToken) {
+              //document.getElementById('sign-in-status').textContent = 'Signed in';
+             //document.getElementById('sign-in').textContent = 'Sign out';
+              /*document.getElementById('account-details').textContent = JSON.stringify({
                 displayName: displayName,
                 email: email,
                 emailVerified: emailVerified,
@@ -56,10 +55,10 @@
               }, null, '  ');
             });
 			*/
-          } else {
-            
-			alert("not logged in");
 			
+			alert("User:" + name + " email:" + email);
+          } else {
+			window.location.replace("login.html");
 			// User is signed out.
             //document.getElementById('sign-in-status').textContent = 'Signed out';
             //document.getElementById('sign-in').textContent = 'Sign in';
