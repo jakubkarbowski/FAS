@@ -20,16 +20,6 @@
 	</script>
 	<script src="https://cdn.firebase.com/libs/firebaseui/1.0.1/firebaseui.js"></script>
     <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/1.0.1/firebaseui.css" />
-	
-	
-	<!--BOOTSTRAP-->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"><!-- Latest compiled and minified CSS -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script><!-- jQuery library -->
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script><!-- Latest compiled JavaScript -->
-
-	<!--Moje-->
-	<link rel="stylesheet" type="text/css" href="styles/styl1.css">
-	
 	<script type="text/javascript">
       initApp = function() {
         firebase.auth().onAuthStateChanged(function(user) {
@@ -72,8 +62,26 @@
       window.addEventListener('load', function() {
         initApp()
       });
+	  function logout(){
+		firebase.auth().signOut().then(function() {
+		// Sign-out successful.
+		}, function(error) {
+		// An error happened.
+		});
+		}
 	
 	</script>
+	
+	
+	
+	<!--BOOTSTRAP-->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"><!-- Latest compiled and minified CSS -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script><!-- jQuery library -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script><!-- Latest compiled JavaScript -->
+
+	<!--Moje-->
+	<link rel="stylesheet" type="text/css" href="styles/styl1.css">
+	
 	
 </head>
 
@@ -96,7 +104,7 @@
 				<li><a href="about.html">About</a></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
-				<li><a href="login.html"><span class="glyphicon glyphicon-log-in"></span> Logowanie</a></li>
+				<li><a href="login.html" onclick="logout()"><span class="glyphicon glyphicon-log-in"></span> Wylogój</a></li>
 			</ul>
 		</div>
 	</div>
