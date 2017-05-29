@@ -22,9 +22,16 @@
     <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/1.0.1/firebaseui.css" />
 	<script type="text/javascript">
       initApp = function() {
-        firebase.auth().onAuthStateChanged(function(user) {
-          if (user) {
-            // User is signed in.
+		firebase.auth().onAuthStateChanged(function(user) {
+          if (!user) {
+			window.stop();
+		  	window.location.replace("login.html");
+			// User is signed out.
+            //document.getElementById('sign-in-status').textContent = 'Signed out';
+            //document.getElementById('sign-in').textContent = 'Sign in';
+            //document.getElementById('account-details').textContent = 'null';
+          } else {
+		   // User is signed in.
             var name = user.displayName;
             var email = user.email;
             var emailVerified = user.emailVerified;
@@ -47,12 +54,33 @@
 			*/
 			
 			alert("User:" + name + " email:" + email);
-          } else {
-			window.location.replace("login.html");
-			// User is signed out.
-            //document.getElementById('sign-in-status').textContent = 'Signed out';
-            //document.getElementById('sign-in').textContent = 'Sign in';
-            //document.getElementById('account-details').textContent = 'null';
+			$.ajax({
+			  type: "POST",
+			  url: 'http://54.245.0.42:8181/',
+			  data: {"token":"abcdef12345"},
+			  success: alert("Jupi!"),
+			  dataType: "result"
+			});
+/*			var jqxhr = $.post( "example.php", function() {
+				alert( "success" );
+			})
+				.done(function() {
+					alert( "second success" );
+				})
+				.fail(function() {
+					alert( "error" );
+				})
+				.always(function() {
+					alert( "finished" );
+				});
+ 
+// Perform other work here ...
+ 
+// Set another completion function for the request above
+			jqxhr.always(function() {
+			alert( "second finished" );
+			});
+*/
           }
         }, function(error) {
           alert(error);
@@ -64,24 +92,17 @@
       });
 	  function logout(){
 		firebase.auth().signOut().then(function() {
-		// Sign-out successful.
+		alert("Żegnaj");
 		}, function(error) {
 		// An error happened.
 		});
 		}
 	
 	</script>
-	
-	
-	
-	<!--BOOTSTRAP-->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"><!-- Latest compiled and minified CSS -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script><!-- jQuery library -->
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script><!-- Latest compiled JavaScript -->
+
 
 	<!--Moje-->
 	<link rel="stylesheet" type="text/css" href="styles/styl1.css">
-	
 	
 </head>
 
@@ -104,7 +125,7 @@
 				<li><a href="about.html">About</a></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
-				<li><a href="login.html" onclick="logout()"><span class="glyphicon glyphicon-log-in"></span> Wylogój</a></li>
+				<li><a href="login.html" onclick="logout()"><span class="glyphicon glyphicon-log-in"></span> Wyloguj</a></li>
 			</ul>
 		</div>
 	</div>
@@ -193,5 +214,9 @@
 <footer class="container-fluid text-center">
   <p>Stworzone przez JK</p>
 </footer>
+	<!--BOOTSTRAP-->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"><!-- Latest compiled and minified CSS -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script><!-- jQuery library -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script><!-- Latest compiled JavaScript -->
 </body>
 </html>
