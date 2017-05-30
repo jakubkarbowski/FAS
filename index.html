@@ -57,7 +57,7 @@
 			$.ajax({
 			  type: "POST",
 			  contentType: "application/json; charset=utf-8",
-			  url: 'http://54.245.0.42:8181/',
+			  url: 'http://54.245.0.42/login',
 			  data: {"token":"abcdef12345"},
 			  success: alert("Połączyłeś się z serwerem"),
 			  dataType: "json"
@@ -91,9 +91,18 @@
       window.addEventListener('load', function() {
         initApp()
       });
+	  function downloadingOfUsers(){
+		
+		
+/*		$("button").click(function(){
+			$.get("demo_test.asp", function(data, status){
+				alert("Data: " + data + "\nStatus: " + status);
+		});
+	}); 
+*/	  }
 	  function logout(){
+		console.log("Żegnaj");
 		firebase.auth().signOut().then(function() {
-		alert("Żegnaj");
 		}, function(error) {
 		// An error happened.
 		});
@@ -121,7 +130,7 @@
 		<div class="collapse navbar-collapse" id="myNavbar">
 			<ul class="nav navbar-nav">
 				<li class="active"><a href="index.html">Home</a></li>
-				<li><a href="#">Strona2</a></li>
+				<li><a href="#"><span class="glyphicon glyphicon-user"></span>USER</a></li>
 				<li><a href="#">Strona3</a></li>
 				<li><a href="about.html">About</a></li>
 			</ul>
@@ -144,6 +153,7 @@
 				<p>Oto urządzenia znajdujące się w Twoim domu:</p>
 			</article>
 			<div>
+				<button onclick="downloadingOfUsers()" id="downloadUsers">Pobierz użytkowników</button>
 				<div class = "usersPhotos">
 					<!-- <div class="containerBox"> -->
 						<!-- <div class="text-box"> -->
