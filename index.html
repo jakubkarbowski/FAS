@@ -56,10 +56,11 @@
 			alert("User:" + name + " email:" + email);
 			$.ajax({
 			  type: "POST",
+			  contentType: "application/json; charset=utf-8",
 			  url: 'http://54.245.0.42:8181/',
 			  data: {"token":"abcdef12345"},
-			  success: alert("Jupi!"),
-			  dataType: "result"
+			  success: alert("Połączyłeś się z serwerem"),
+			  dataType: "json"
 			});
 /*			var jqxhr = $.post( "example.php", function() {
 				alert( "success" );
@@ -144,56 +145,56 @@
 			</article>
 			<div>
 				<div class = "usersPhotos">
-					<div class="containerBox">
-						<div class="text-box">
-							<p class="userName">Gracjan</p>
-						</div>
-						<img class="img-responsive" id="user1" src="kot.jpg" alt="Kot"/>
-					</div>
+					<!-- <div class="containerBox"> -->
+						<!-- <div class="text-box"> -->
+							<!-- <p class="userName">Gracjan</p> -->
+						<!-- </div> -->
+						<!-- <img class="img-responsive" id="user1" src="kot.jpg" alt="Kot"/> -->
+					<!-- </div> -->
 
-					<div class="containerBox">
-						<div class="text-box">
-							<p class="userName">Sebastian</p>
-						</div>
-						<img class="img-responsive" id="user2" src="kot1.jpg" alt="Kotw"/>
-					</div>
+					<!-- <div class="containerBox"> -->
+						<!-- <div class="text-box"> -->
+							<!-- <p class="userName">Sebastian</p> -->
+						<!-- </div> -->
+						<!-- <img class="img-responsive" id="user2" src="kot1.jpg" alt="Kotw"/> -->
+					<!-- </div> -->
 		
-					<div class="containerBox">
-						<div class="text-box">
-							<p class="userName">Janusz</p>
-						</div>
-						<img class="img-responsive" id="user3" src="puste_zdjecie.jpg" alt="user3"/>
-					</div>
-					<div class="containerBox">
-						<div class="text-box">
-							<p class="userName">Brajan</p>
-						</div>
-						<img class="img-responsive" id="user4" src="http://s2.dmcdn.net/Ub1O8/1280x720-mCQ.jpg" alt="user4"/>
-					</div>
-					<div class="containerBox">
-						<div class="text-box">
-							<p class="userName">Grażyna</p>
-						</div>
-						<img class="img-responsive" id="user5" src="https://i.ytimg.com/vi/G0XO2x0TQ58/hqdefault.jpg" alt="user5"/>
-					</div>
-					<div class="containerBox">
-						<div class="text-box">
-							<p class="userName">Andżelika</p>
-						</div>
-						<img class="img-responsive" id="user6" src="https://s-media-cache-ak0.pinimg.com/originals/be/2d/6f/be2d6f2002e8c90bb0cf0f0e752591ed.jpg" alt="user6"/>
-					</div>
-					<div class="containerBox">
-						<div class="text-box">
-							<p class="userName">Karinka</p>
-						</div>
-						<img class="img-responsive" id="user7" src="puste_zdjecie.jpg" alt="user7"/>
-					</div>
-					<div class="containerBox">
-						<div class="text-box">
-							<p class="userName">Stanisław</p>
-						</div>
-						<img class="img-responsive" id="user8" src="https://i.ytimg.com/vi/Fy_yHOpTy7Y/maxresdefault.jpg" alt="user8"/>
-					</div>
+					<!-- <div class="containerBox"> -->
+						<!-- <div class="text-box"> -->
+							<!-- <p class="userName">Janusz</p> -->
+						<!-- </div> -->
+						<!-- <img class="img-responsive" id="user3" src="puste_zdjecie.jpg" alt="user3"/> -->
+					<!-- </div> -->
+					<!-- <div class="containerBox"> -->
+						<!-- <div class="text-box"> -->
+							<!-- <p class="userName">Brajan</p> -->
+						<!-- </div> -->
+						<!-- <img class="img-responsive" id="user4" src="http://s2.dmcdn.net/Ub1O8/1280x720-mCQ.jpg" alt="user4"/> -->
+					<!-- </div> -->
+					<!-- <div class="containerBox"> -->
+						<!-- <div class="text-box"> -->
+							<!-- <p class="userName">Grażyna</p> -->
+						<!-- </div> -->
+						<!-- <img class="img-responsive" id="user5" src="https://i.ytimg.com/vi/G0XO2x0TQ58/hqdefault.jpg" alt="user5"/> -->
+					<!-- </div> -->
+					<!-- <div class="containerBox"> -->
+						<!-- <div class="text-box"> -->
+							<!-- <p class="userName">Andżelika</p> -->
+						<!-- </div> -->
+						<!-- <img class="img-responsive" id="user6" src="https://s-media-cache-ak0.pinimg.com/originals/be/2d/6f/be2d6f2002e8c90bb0cf0f0e752591ed.jpg" alt="user6"/> -->
+					<!-- </div> -->
+					<!-- <div class="containerBox"> -->
+						<!-- <div class="text-box"> -->
+							<!-- <p class="userName">Karinka</p> -->
+						<!-- </div> -->
+						<!-- <img class="img-responsive" id="user7" src="puste_zdjecie.jpg" alt="user7"/> -->
+					<!-- </div> -->
+					<!-- <div class="containerBox"> -->
+						<!-- <div class="text-box"> -->
+							<!-- <p class="userName">Stanisław</p> -->
+						<!-- </div> -->
+						<!-- <img class="img-responsive" id="user8" src="https://i.ytimg.com/vi/Fy_yHOpTy7Y/maxresdefault.jpg" alt="user8"/> -->
+					<!-- </div> -->
 				</div>
 			</div>
 		</div>
