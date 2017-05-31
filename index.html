@@ -52,15 +52,56 @@
               }, null, '  ');
             });
 			*/
+			$(document).ready(function(){
+				$("#userModal").append("User:" + name + " email:" + email);
+			});
 			
-			alert("User:" + name + " email:" + email);
+			//alert("User:" + name + " email:" + email);
+			
+			//Łączenie z serwerem
 			$.ajax({
 			  type: "POST",
 			  contentType: "application/json; charset=utf-8",
 			  url: 'http://54.245.0.42/login',
-			  data: {"token":"abcdef12345"},
+			  data: JSON.stringify({"token":"abcdef12345"}),
 			  success: alert("Połączyłeś się z serwerem"),
 			  dataType: "json"
+			});
+			//Pobieranie użytkowników
+/*			$(document).ready(function(){
+				$("#downloadUsers").click(function(){
+				$.ajax({
+						type: "POST",
+						contentType: "application/json; charset=utf-8",
+						url: 'http://54.245.0.42/users',
+						data: JSON.stringify({"token":"abcdef12345"}),
+						success: alert("Odebrane dane użytkowników"),
+						dataType: "json"
+					});			
+				}); 
+			});
+*/		
+			$(document).ready(function alaMaKota(){
+				$("#downloadUsers").click(function(){
+					$.get("http://54.245.0.42/users", function(users){
+					for(var i = 0; i<users.users.length; i++){
+						console.log(users.users[i].name);
+						var im;
+						var n;
+						
+						$('div.usersPhotos').append('<div><div><p></p></div></div>');
+						$('div.usersPhotos>div').addClass("containerBox");
+						$('div.containerBox>div').addClass("text-box");
+						
+						im = users.users[i].name;
+						$('div.text-box>p:empty').append(im);
+						$('div.text-box>p').addClass("userName");
+						n = i +1;
+						$('div.containerBox:nth-of-type('+ n +')').append($('<img>',{id:'theImg',src:users.users[i].photoUrl}));
+						$('<img>').addClass("img-responsive");
+					}
+					});
+				}); 
 			});
 /*			var jqxhr = $.post( "example.php", function() {
 				alert( "success" );
@@ -91,15 +132,7 @@
       window.addEventListener('load', function() {
         initApp()
       });
-	  function downloadingOfUsers(){
-		
-		
-/*		$("button").click(function(){
-			$.get("demo_test.asp", function(data, status){
-				alert("Data: " + data + "\nStatus: " + status);
-		});
-	}); 
-*/	  }
+
 	  function logout(){
 		console.log("Żegnaj");
 		firebase.auth().signOut().then(function() {
@@ -129,10 +162,10 @@
 		</div>
 		<div class="collapse navbar-collapse" id="myNavbar">
 			<ul class="nav navbar-nav">
-				<li class="active"><a href="index.html">Home</a></li>
-				<li><a href="#"><span class="glyphicon glyphicon-user"></span>USER</a></li>
+				<li class="active"><a href="index.html"><span class="glyphicon glyphicon-home"></span>Home</a></li>
+				<li><a type="button" data-toggle="modal" data-target="#okienkowyUser"><span class="glyphicon glyphicon-user"></span>USER</a></li>
 				<li><a href="#">Strona3</a></li>
-				<li><a href="about.html">About</a></li>
+				<li><a href="about.html"><span class="glyphicon glyphicon-eye-open"></span>About</a></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
 				<li><a href="login.html" onclick="logout()"><span class="glyphicon glyphicon-log-in"></span> Wyloguj</a></li>
@@ -153,7 +186,23 @@
 				<p>Oto urządzenia znajdujące się w Twoim domu:</p>
 			</article>
 			<div>
-				<button onclick="downloadingOfUsers()" id="downloadUsers">Pobierz użytkowników</button>
+			<div class="modal fade" id="okienkowyUser" role="dialog">
+						<div class="modal-dialog">
+							<div class="modal-content">
+								<div class="modal-header">
+									<button type="button" class="close" data-dismiss="modal">&times;</button>
+									<h4 id="userModal" class="modal-title"></h4>
+								</div>
+								<div class="modal-body">
+									<img id="puste_zdjecie"src="puste_zdjecie.jpg" alt="Users photo" class="img">
+								</div>
+								<div class="modal-footer">
+									<button type="button" class="btn btn-default" data-dismiss="modal">Zamknij</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				<button id="downloadUsers">Pobierz użytkowników</button>
 				<div class = "usersPhotos">
 					<!-- <div class="containerBox"> -->
 						<!-- <div class="text-box"> -->
